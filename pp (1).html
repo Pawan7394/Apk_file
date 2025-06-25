@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Technical Help Pawan</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #f12711, #f5af19);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+    
+    .header {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 15px 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+    
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .logo {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+    
+    .channel-name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .channel-name span {
+      color: #f5af19;
+    }
+    
+    .youtube-icon {
+      color: red;
+      font-size: 1.5rem;
+    }
+    
+    .main-content {
+      padding: 20px;
+      max-width: 100%;
+      margin: 0 auto;
+      flex: 1;
+      width: 100%;
+    }
+    
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #fff;
+      text-shadow: 1px 1px 2px #000;
+      margin: 15px 0;
+    }
+    
+    .card {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      backdrop-filter: blur(6px);
+      transition: transform 0.3s ease;
+      margin: 15px 0;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    
+    button, .download-btn {
+      background: #fff;
+      color: #111;
+      border: none;
+      padding: 12px 20px;
+      margin-top: 15px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      width: 100%;
+      justify-content: center;
+    }
+    
+    button:hover, .download-btn:hover {
+      background: #111;
+      color: #fff;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+    
+    .app-img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      margin-bottom: 10px;
+      border-radius: 15px;
+      background: rgba(255,255,255,0.9);
+      padding: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    
+    #confirmSection, #downloads, #downloadAppCard {
+      display: none;
+    }
+    
+    .apps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      margin: 20px auto;
+      width: 100%;
+    }
+    
+    .app-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px;
+    }
+    
+    .app-card h3 {
+      margin: 10px 0;
+      font-size: 1rem;
+      text-align: center;
+    }
+    
+    .footer {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 15px 0;
+      width: 100%;
+      backdrop-filter: blur(8px);
+      margin-top: auto;
+    }
+    
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+    
+    .footer-links a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1rem;
+      padding: 5px;
+    }
+    
+    .footer-links a:hover {
+      color: #f5af19;
+    }
+    
+    .copyright {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.7);
+      margin-top: 10px;
+    }
+
+    /* Responsive adjustments */
+    @media (min-width: 768px) {
+      .header {
+        padding: 15px 40px;
+      }
+      
+      .logo {
+        width: 60px;
+        height: 60px;
+      }
+      
+      .channel-name {
+        font-size: 1.4rem;
+      }
+      
+      .main-content {
+        padding: 30px 40px;
+      }
+      
+      h1 {
+        font-size: 2.2rem;
+      }
+      
+      .apps-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+      }
+      
+      .app-img {
+        width: 70px;
+        height: 70px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <div class="logo-container">
+      <img src="/files/IMG_20250321_150828_916.webp" alt="Channel Logo" class="logo">
+      <div class="channel-name">
+        Technical <span>Help</span> Pawan
+      </div>
+    </div>
+    <a href="https://www.youtube.com/@Pawan___pal" target="_blank" class="youtube-icon">
+      <i class="fab fa-youtube"></i>
+    </a>
+  </header>
+  
+  <!-- Main Content -->
+  <div class="main-content">
+    <h1>🚀 Premium Mod Apps</h1>
+    <p style="font-size: 16px; opacity: 0.9; margin-bottom: 20px;">Subscribe to download premium mod apps for free</p>
+    
+    <!-- Step 1 - Subscribe Section -->
+    <div class="card" id="subscribeCard" style="display: none;">
+      <h2>🔔 Step 1: Subscribe to our Channel</h2>
+      <h4 style="font-weight: normal; opacity: 0.9; margin-bottom: 20px;">पहले चैनल को सब्सक्राइब करें, बाद में डाउनलोड लिंक मिलेगी</h4>
+      <a href="https://www.youtube.com/@Pawan___pal?sub_confirmation=1" target="_blank" rel="noopener" onclick="afterSubscribe()">
+        <button><i class="fab fa-youtube"></i> Subscribe Now</button>
+      </a>
+    </div>
+    
+    <!-- Step 2 - Confirmation after subscribing -->
+    <div class="card" id="confirmSection">
+      <h2>✅ Step 2: Confirm Subscribe?</h2>
+      <h4 style="font-weight: normal; opacity: 0.9; margin-bottom: 20px;">क्या आपने चैनल को सब्सक्राइब कर लिया? YES पर क्लिक करें, नहीं तो NO पर क्लिक करें</h4>
+      <div style="display: flex; justify-content: center; gap: 15px;">
+        <button style="background-color: green;" onclick="handleConfirm(true)">✔️ Yes</button>
+        <a href="https://www.youtube.com/@Pawan___pal?sub_confirmation=1" target="_blank" rel="noopener">
+          <button style="background-color: darkred; color: wheat;">❌ No</button>
+        </a>
+      </div>
+    </div>
+    
+    <!-- Step 3 - Downloads section -->
+    <div id="downloads">
+      <div class="apps-grid">
+        <div class="card app-card">
+          <img src="/files/paytm.png" class="app-img" alt="Paytm Logo"/>
+          <h3>💸 Paytm Pay</h3>
+          <a class="download-btn" href="#" onclick="handleDownload('https://www.mediafire.com/file/lm0buduly0dwhom/Paytm.apk/file', '/files/paytm.png', 'Paytm Pay')">
+            <i class="fas fa-download"></i> Download
+          </a>
+        </div>
+        <div class="card app-card">
+          <img src="/files/google.png" class="app-img" alt="Google Pay Logo"/>
+          <h3>📱 GPay Mod</h3>
+          <a class="download-btn" href="#" onclick="handleDownload('https://www.mediafire.com/file/qqgfn3qbquupz2u/GPay_1.1.apk/file', '/files/google.png', 'GPay Mod')">
+            <i class="fas fa-download"></i> Download
+          </a>
+        </div>
+        <div class="card app-card">
+          <img src="/files/phonepe.png" class="app-img" alt="PhonePe Logo"/>
+          <h3>💸 PhonePe Premium</h3>
+          <a class="download-btn" href="#" onclick="handleDownload('https://www.mediafire.com/file/u16235nrk2o5ioe/PhonePe.apk/file', '/files/phonepe.png', 'PhonePe Premium')">
+            <i class="fas fa-download"></i> Download
+          </a>
+        </div>
+        <div class="card app-card">
+          <img src="/files/black phonepay.jpeg" class="app-img" alt="PhonePe 2 Logo"/>
+          <h3>🪙 Phone Pay2</h3>
+          <a class="download-btn" href="#" onclick="handleDownload('https://www.mediafire.com/file/8za3118czg8qkwh/PhonePe_1.0.apk/file', '/files/black phonepay.jpeg', 'Phone Pay2')">
+            <i class="fas fa-download"></i> Download
+          </a>
+        </div>
+        <div class="card app-card">
+          <img src="/files/supermony.png" class="app-img" alt="Supermony Logo"/>
+          <h3>🪙 Supermony Mod</h3>
+          <a class="download-btn" href="#" onclick="handleDownload('https://www.mediafire.com/file/gizzt0yam1jfnee/Super+Pay_.apk/file', '/files/supermony.png', 'Supermony Mod')">
+            <i class="fas fa-download"></i> Download
+          </a>
+        </div>
+        <div class="card app-card">
+          <img src="/files/fam.png" class="app-img" alt="Fam Logo"/>
+          <h3>💸 Fam Mod</h3>
+          <a class="download-btn" href="#" onclick="handleDownload('https://www.mediafire.com/file/popillht5k7h8qh/FamApp_1.0.apk/file', '/files/fam.png', 'Fam Mod')">
+            <i class="fas fa-download"></i> Download
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Final Download Card -->
+    <div class="card" id="downloadAppCard">
+      <img id="downloadAppImage" src="" class="app-img" alt="App Logo"/>
+      <h3 id="downloadAppName"></h3>
+      <a id="realDownloadBtn" class="download-btn" href="#" onclick="initiateDownload()">
+        <i class="fas fa-download"></i> Download Now
+      </a>
+    </div>
+  </div>
+  
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="https://www.youtube.com/@Pawan___pal" target="_blank">
+        <i class="fab fa-youtube"></i> YouTube
+      </a>
+      <a href="#" onclick="alert('Coming soon!')"><i class="fas fa-question-circle"></i> Help</a>
+      <a href="#" onclick="alert('Coming soon!')"><i class="fas fa-shield-alt"></i> Privacy Policy</a>
+      <a href="#" onclick="alert('Coming soon!')"><i class="fas fa-envelope"></i> Contact</a>
+    </div>
+    <div class="copyright">
+      &copy; 2023 Technical Help Pawan. All Rights Reserved.
+    </div>
+  </footer>
+  
+  <script>
+    let selectedDownload = {
+      url: "",
+      image: "",
+      name: ""
+    };
+    
+    function handleDownload(downloadUrl, imageUrl, appName) {
+      selectedDownload = {
+        url: downloadUrl,
+        image: imageUrl,
+        name: appName
+      };
+        
+      document.getElementById("downloads").style.display = "none";
+      document.getElementById("downloadAppCard").style.display = "none";
+      document.getElementById("subscribeCard").style.display = "block";
+      document.getElementById("confirmSection").style.display = "none";
+      window.scrollTo(0, 0);
+    }
+    
+    function afterSubscribe() {
+      localStorage.setItem("visitedAfterSubscribe", "true");
+      localStorage.setItem("selectedDownloadUrl", selectedDownload.url);
+      localStorage.setItem("selectedDownloadImage", selectedDownload.image);
+      localStorage.setItem("selectedDownloadName", selectedDownload.name);
+    }
+    
+    function initiateDownload() {
+      window.open(selectedDownload.url, '_blank');
+      return false;
+    }
+    
+    window.onload = function() {
+      const redirected = localStorage.getItem("visitedAfterSubscribe");
+      const storedUrl = localStorage.getItem("selectedDownloadUrl");
+      const storedImage = localStorage.getItem("selectedDownloadImage");
+      const storedName = localStorage.getItem("selectedDownloadName");
+        
+      if (redirected === "true") {
+        document.getElementById("subscribeCard").style.display = "none";
+        document.getElementById("confirmSection").style.display = "block";
+        document.getElementById("downloads").style.display = "none";
+        document.getElementById("downloadAppCard").style.display = "none";
+          
+        selectedDownload = {
+          url: storedUrl,
+          image: storedImage,
+          name: storedName
+        };
+          
+        localStorage.removeItem("visitedAfterSubscribe");
+      } else {
+        document.getElementById("downloads").style.display = "block";
+        document.getElementById("subscribeCard").style.display = "none";
+        document.getElementById("confirmSection").style.display = "none";
+        document.getElementById("downloadAppCard").style.display = "none";
+      }
+    };
+    
+    function handleConfirm(answer) {
+      if (answer) {
+        document.getElementById("confirmSection").style.display = "none";
+        document.getElementById("downloadAppCard").style.display = "block";
+          
+        document.getElementById("downloadAppImage").src = selectedDownload.image;
+        document.getElementById("downloadAppName").textContent = selectedDownload.name;
+        document.getElementById("realDownloadBtn").href = "#";
+          
+        localStorage.removeItem("selectedDownloadUrl");
+        localStorage.removeItem("selectedDownloadImage");
+        localStorage.removeItem("selectedDownloadName");
+      }
+    }
+  </script>
+</body>
+</html>
